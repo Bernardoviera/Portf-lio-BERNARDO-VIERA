@@ -6,6 +6,7 @@ import WhyMe from "@/components/WhyMe";
 import Process from "@/components/Process";
 import Partners from "@/components/Partners";
 import About from "@/components/About";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Process />
       <Partners />
       <About />
+      <FeaturedProjects />
       <CtaSection />
       <Footer />
     </main>
