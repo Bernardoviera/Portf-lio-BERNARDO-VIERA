@@ -13,29 +13,29 @@ const services: Service[] = [
     icon: Layout,
     title: "Landing Pages",
     description:
-      "Páginas de captura otimizadas para converter visitantes em leads qualificados. Foco em velocidade, clareza e CTA irresistível.",
-    highlights: ["Alta taxa de conversão", "Copy persuasivo", "Design responsivo"],
+      "Páginas de captura estruturadas para apresentar uma oferta com clareza e direcionar o visitante para uma única ação: entrar em contato ou deixar os dados.",
+    highlights: ["Estrutura focada em conversão", "Copy direto e objetivo", "Design responsivo"],
   },
   {
     icon: TrendingUp,
     title: "Páginas de Venda",
     description:
-      "Long-form sales pages com estrutura psicológica, prova social e elementos de urgência que levam o visitante à ação.",
-    highlights: ["Estrutura de alta conversão", "Copy + design integrado", "Storytelling de marca"],
+      "Páginas long-form com estrutura pensada para guiar a decisão de compra: apresentação da oferta, benefícios, prova social e chamadas para ação bem posicionadas.",
+    highlights: ["Estrutura de copy completa", "Design e texto integrados", "Fluxo de leitura estratégico"],
   },
   {
     icon: ShoppingBag,
     title: "Páginas de Produto",
     description:
-      "Apresentação visual e estratégica dos seus produtos para maximizar a decisão de compra com menos fricção.",
-    highlights: ["Apresentação visual", "Gatilhos mentais", "CTA otimizado"],
+      "Apresentação visual e estratégica de produtos físicos ou digitais, com foco em destacar benefícios, reduzir dúvidas e facilitar a decisão de compra.",
+    highlights: ["Apresentação visual do produto", "Seções de benefícios e FAQ", "CTA bem posicionado"],
   },
   {
     icon: FileText,
     title: "Copy Estratégico",
     description:
-      "Textos persuasivos que comunicam valor, quebram objeções e geram ação imediata do visitante em qualquer etapa do funil.",
-    highlights: ["Quebra de objeções", "Proposta de valor clara", "Texto orientado a dados"],
+      "Texto estruturado para comunicar o valor da oferta com clareza, antecipar objeções do visitante e estimular a ação em cada etapa da página.",
+    highlights: ["Texto orientado à oferta", "Tratamento de objeções", "Linguagem adequada ao público"],
   },
 ];
 
@@ -48,14 +48,14 @@ export default function Services() {
             O que eu faço
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
-            Soluções para converter
+            Páginas construídas para
             <br />
             <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
-              visitantes em clientes
+              comunicar e converter
             </span>
           </h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Especializado em criar experiências digitais que guiam o visitante até a conversão.
+            Cada entrega é pensada do zero: estrutura, design e texto trabalhados juntos.
           </p>
         </div>
 

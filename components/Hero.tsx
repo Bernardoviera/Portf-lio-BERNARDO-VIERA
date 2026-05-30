@@ -1,11 +1,5 @@
-import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/constants";
-
-const stats = [
-  { number: "50+", label: "Páginas criadas" },
-  { number: "93%", label: "Clientes satisfeitos" },
-  { number: "3x", label: "Média de crescimento" },
-];
 
 export default function Hero() {
   return (
@@ -21,33 +15,33 @@ export default function Hero() {
       <div className="absolute inset-0 grid-pattern" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/25 text-amber-400 text-sm font-medium px-4 py-1.5 rounded-full mb-8">
-          <Sparkles size={14} />
-          Especialista em Páginas de Alta Conversão
+        <div className="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-1.5 rounded-full mb-8">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+          Landing Pages · Páginas de Venda · Páginas de Produto
         </div>
 
         {/* Headline */}
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-          <span className="text-white">Páginas que vendem.</span>
+        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
+          <span className="text-white">Tiro suas ideias do papel</span>
           <br />
           <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
-            Resultados que crescem.
+            e transformo em páginas de venda profissionais.
           </span>
         </h1>
 
         {/* Description */}
-        <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Crio landing pages e páginas de venda de alta conversão para{" "}
+        <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+          Criação de landing pages, páginas de vendas e páginas de produto para{" "}
           <span className="text-slate-200 font-medium">
-            assessorias, gestores de tráfego e empresas
+            assessorias, gestores de tráfego e negócios digitais
           </span>{" "}
-          que querem transformar tráfego em receita real.
+          que precisam converter mais.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -58,27 +52,12 @@ export default function Hero() {
             Falar comigo no WhatsApp
           </a>
           <a
-            href="#projetos"
+            href="#servicos"
             className="flex items-center gap-2 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl text-lg transition-all duration-200 w-full sm:w-auto justify-center group"
           >
-            Ver meus projetos
+            Conhecer meus serviços
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-        </div>
-
-        {/* Stats */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-          {stats.map((stat, i) => (
-            <div key={stat.label} className="flex items-center gap-4">
-              {i > 0 && (
-                <div className="hidden sm:block w-px h-10 bg-slate-800" />
-              )}
-              <div className="text-center">
-                <div className="text-3xl font-bold text-amber-400 font-heading">{stat.number}</div>
-                <div className="text-sm text-slate-400 mt-0.5">{stat.label}</div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 

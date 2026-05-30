@@ -14,15 +14,15 @@ export default function CtaSection() {
           Vamos trabalhar juntos
         </span>
         <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6 leading-[1.1]">
-          Pronto para transformar
+          Tem um projeto em mente?
           <br />
           <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
-            seu tráfego em vendas?
+            Me chama no WhatsApp.
           </span>
         </h2>
         <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-          Vamos conversar sobre seu projeto. Respondo em até 24 horas e faço uma análise gratuita
-          da sua situação atual.
+          Apresente sua ideia ou briefing. Vou analisar o que você precisa e te dizer se consigo
+          ajudar, sem compromisso.
         </p>
 
         <a
@@ -37,7 +37,7 @@ export default function CtaSection() {
         </a>
 
         <p className="text-slate-600 text-sm mt-5">
-          Sem compromisso. Primeira conversa é gratuita.
+          Respondo com agilidade. Sem enrolação.
         </p>
       </div>
     </section>

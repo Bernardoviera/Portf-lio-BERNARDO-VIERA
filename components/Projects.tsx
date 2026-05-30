@@ -1,57 +1,69 @@
-import { TrendingUp } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 interface Project {
+  label: "Projeto Real" | "Projeto Conceitual";
   category: string;
   title: string;
   description: string;
-  result: string;
-  resultLabel: string;
+  deliverables: string[];
   tags: string[];
   accentFrom: string;
   accentTo: string;
   borderColor: string;
-  resultBg: string;
+  labelStyle: string;
 }
 
 const projects: Project[] = [
   {
-    category: "Página de Produto",
-    title: "E-commerce de Suplementos",
+    label: "Projeto Real",
+    category: "Landing Page de Produto",
+    title: "E-commerce — Segmento de Saúde",
     description:
-      "Redesign completo da página de produto com copy focado em benefícios, prova social e senso de urgência. Resultado medido em 30 dias de teste A/B.",
-    result: "+43%",
-    resultLabel: "taxa de conversão",
-    tags: ["E-commerce", "Produto", "A/B Test"],
+      "Desenvolvimento de landing page de produto com estrutura voltada para conversão. Foco na apresentação dos benefícios, redução de objeções e fluxo claro de decisão de compra.",
+    deliverables: [
+      "Estrutura de headline e benefícios",
+      "Seção de prova social e FAQ",
+      "CTA direto com oferta clara",
+    ],
+    tags: ["E-commerce", "Produto", "Copy"],
     accentFrom: "from-amber-500",
-    accentTo: "to-orange-600",
+    accentTo: "to-orange-500",
     borderColor: "border-amber-500/25",
-    resultBg: "bg-amber-500/10",
+    labelStyle: "bg-amber-500/15 text-amber-400 border border-amber-500/30",
   },
   {
+    label: "Projeto Conceitual",
     category: "Página de Vendas",
-    title: "Lançamento de Curso Online",
+    title: "Curso Digital — Educação Online",
     description:
-      "Página de vendas long-form com storytelling, depoimentos em vídeo, bônus estratégicos e múltiplos CTAs. Resultado direto no lançamento.",
-    result: "R$180k",
-    resultLabel: "em um lançamento",
-    tags: ["Infoproduto", "Lançamento", "Long-form"],
+      "Estrutura completa de página de vendas long-form para lançamento de curso digital, com apresentação do método, módulos e seção de bônus.",
+    deliverables: [
+      "Storytelling e apresentação do criador",
+      "Módulos, bônus e garantia",
+      "CTAs ao longo da página",
+    ],
+    tags: ["Infoproduto", "Educação", "Long-form"],
     accentFrom: "from-blue-500",
-    accentTo: "to-cyan-500",
+    accentTo: "to-indigo-500",
     borderColor: "border-blue-500/25",
-    resultBg: "bg-blue-500/10",
+    labelStyle: "bg-blue-500/15 text-blue-400 border border-blue-500/30",
   },
   {
-    category: "Landing Page",
-    title: "Clínica de Estética",
+    label: "Projeto Conceitual",
+    category: "Landing Page de Captação",
+    title: "Serviço Local — Captação de Leads",
     description:
-      "Landing page de captação com formulário de agendamento, antes/depois e oferta de consulta grátis. Triplicou a geração de leads qualificados.",
-    result: "3x",
-    resultLabel: "mais leads por mês",
-    tags: ["Saúde & Beleza", "Lead Gen", "Local"],
+      "Landing page focada em captação de leads para negócio local, com proposta de valor clara, formulário de contato direto e chamada para ação objetiva.",
+    deliverables: [
+      "Proposta de valor e diferenciais",
+      "Formulário de agendamento",
+      "CTA e próximos passos",
+    ],
+    tags: ["Lead Gen", "Serviços", "Captação"],
     accentFrom: "from-emerald-500",
     accentTo: "to-teal-500",
     borderColor: "border-emerald-500/25",
-    resultBg: "bg-emerald-500/10",
+    labelStyle: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30",
   },
 ];
 
@@ -61,17 +73,17 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
-            Projetos
+            Portfólio
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
-            Resultados que
+            Exemplos de
             <br />
             <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
-              falam por si
+              trabalhos desenvolvidos
             </span>
           </h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Cada página é construída com uma única obsessão: converter.
+            Projetos identificados como reais ou conceituais de forma transparente.
           </p>
         </div>
 
@@ -79,7 +91,7 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className={`relative bg-slate-900 border ${project.borderColor} rounded-2xl overflow-hidden group hover:scale-[1.02] transition-all duration-300 hover:shadow-2xl flex flex-col`}
+              className={`relative bg-slate-900 border ${project.borderColor} rounded-2xl overflow-hidden group hover:scale-[1.015] transition-all duration-300 hover:shadow-2xl flex flex-col`}
             >
               {/* Top accent line */}
               <div
@@ -87,25 +99,36 @@ export default function Projects() {
               />
 
               <div className="p-6 flex flex-col flex-1">
+                {/* Label + category */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${project.labelStyle}`}>
+                    {project.label}
+                  </span>
+                </div>
+
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
                   {project.category}
                 </span>
-                <h3 className="font-heading font-bold text-white text-xl mt-2 mb-3">
+                <h3 className="font-heading font-bold text-white text-lg mt-1.5 mb-3">
                   {project.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
                   {project.description}
                 </p>
 
-                {/* Result highlight */}
-                <div className={`${project.resultBg} rounded-xl p-4 mb-4 flex items-center gap-3`}>
-                  <TrendingUp size={18} className="text-amber-400 flex-shrink-0" />
-                  <div>
-                    <span className="text-2xl font-bold text-white font-heading">
-                      {project.result}
-                    </span>
-                    <p className="text-xs text-slate-300 mt-0.5">{project.resultLabel}</p>
-                  </div>
+                {/* Deliverables */}
+                <div className="bg-slate-800/60 rounded-xl p-4 mb-4">
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
+                    O que foi desenvolvido
+                  </p>
+                  <ul className="space-y-2">
+                    {project.deliverables.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
+                        <CheckCircle size={13} className="text-amber-400 flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 {/* Tags */}
@@ -123,10 +146,6 @@ export default function Projects() {
             </div>
           ))}
         </div>
-
-        <p className="text-center text-slate-600 text-xs mt-8">
-          * Dados de clientes reais. Resultados podem variar conforme produto e volume de tráfego.
-        </p>
       </div>
     </section>
   );
