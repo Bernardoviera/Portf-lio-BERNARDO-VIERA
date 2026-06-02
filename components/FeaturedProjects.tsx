@@ -28,6 +28,19 @@ const featuredProjects: FeaturedProject[] = [
       "https://image.thum.io/get/width/1200/crop/630/https://dolceo-page.vercel.app/index.html",
     tags: ["Landing Page", "Conversão", "Design Premium", "Responsivo"],
   },
+  {
+    id: "orvia",
+    label: "Projeto Real",
+    labelStyle: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30",
+    category: "Página de Venda / Infoproduto",
+    name: "Orvia",
+    description:
+      "Página de vendas para infoproduto desenvolvida para o mercado internacional. Estrutura moderna com foco em conversão, copy adaptado ao público-alvo e design responsivo.",
+    url: "https://orviafr.vercel.app/",
+    screenshotUrl:
+      "https://image.thum.io/get/width/1200/crop/630/https://orviafr.vercel.app/",
+    tags: ["Infoproduto", "Mercado Internacional", "Página de Venda", "Responsivo"],
+  },
 ];
 
 export default function FeaturedProjects() {
