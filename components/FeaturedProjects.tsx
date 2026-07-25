@@ -41,6 +41,32 @@ const featuredProjects: FeaturedProject[] = [
       "https://image.thum.io/get/width/1200/crop/630/https://orviafr.vercel.app/",
     tags: ["Infoproduto", "Mercado Internacional", "Página de Venda", "Responsivo"],
   },
+  {
+    id: "anaribeiro",
+    label: "Projeto Real",
+    labelStyle: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30",
+    category: "Landing Page / Página de Venda",
+    name: "Ana Ribeiro",
+    description:
+      "Página desenvolvida com identidade visual personalizada, estrutura de apresentação clara e foco em conversão para o público-alvo do projeto.",
+    url: "https://anaribeiro-page.vercel.app/",
+    screenshotUrl:
+      "https://image.thum.io/get/width/1200/crop/630/https://anaribeiro-page.vercel.app/",
+    tags: ["Landing Page", "Identidade Visual", "Conversão", "Responsivo"],
+  },
+  {
+    id: "ilan",
+    label: "Projeto Real",
+    labelStyle: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30",
+    category: "Landing Page / Página de Venda",
+    name: "Ilan",
+    description:
+      "Página com estrutura moderna e layout otimizado para apresentação da oferta, desenvolvida com foco em experiência do usuário e direcionamento para conversão.",
+    url: "https://ilan-page.vercel.app/",
+    screenshotUrl:
+      "https://image.thum.io/get/width/1200/crop/630/https://ilan-page.vercel.app/",
+    tags: ["Landing Page", "Design Moderno", "Conversão", "Responsivo"],
+  },
 ];
 
 export default function FeaturedProjects() {
