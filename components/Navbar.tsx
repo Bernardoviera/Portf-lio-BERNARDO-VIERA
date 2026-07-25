@@ -42,11 +42,13 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="text-2xl font-bold font-heading text-red-400 group-hover:text-rose-300 transition-colors">
-              BV
-            </span>
-            <span className="hidden sm:block text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 bg-red-500 group-hover:bg-red-400 transition-colors duration-200 flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-black font-heading text-sm leading-none tracking-tight">
+                BV
+              </span>
+            </div>
+            <span className="hidden sm:block text-sm font-medium text-slate-300 group-hover:text-white transition-colors duration-200">
               Bernardo Vieira
             </span>
           </Link>
