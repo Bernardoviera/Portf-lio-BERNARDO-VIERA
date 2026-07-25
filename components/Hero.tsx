@@ -44,7 +44,7 @@ export default function Hero() {
         <motion.h1
           variants={item}
           className="font-heading font-black text-white leading-[0.92] tracking-tight mb-10"
-          style={{ fontSize: "clamp(2.8rem, 8vw, 7.5rem)" }}
+          style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
         >
           Tiro suas ideias
           <br />
