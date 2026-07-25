@@ -43,14 +43,23 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 bg-red-500 group-hover:bg-red-400 transition-colors duration-200 flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-black font-heading text-sm leading-none tracking-tight">
-                BV
-              </span>
-            </div>
-            <span className="hidden sm:block text-sm font-medium text-slate-300 group-hover:text-white transition-colors duration-200">
-              Bernardo Vieira
+            {/* Two-colour monogram */}
+            <span
+              className="font-heading font-black leading-none select-none"
+              style={{ fontSize: "1.7rem", letterSpacing: "-0.04em" }}
+            >
+              <span className="text-white group-hover:text-slate-100 transition-colors duration-200">B</span>
+              <span className="text-red-500 group-hover:text-red-400 transition-colors duration-200">V</span>
             </span>
+
+            {/* Divider + stacked name */}
+            <div className="hidden sm:flex items-center gap-3">
+              <div className="w-px h-6 bg-red-900/50" />
+              <div className="flex flex-col leading-none gap-0.5">
+                <span className="text-[9px] font-bold text-red-500/60 uppercase tracking-[0.2em]">Bernardo</span>
+                <span className="text-[9px] font-bold text-slate-300 uppercase tracking-[0.2em]">Vieira</span>
+              </div>
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
