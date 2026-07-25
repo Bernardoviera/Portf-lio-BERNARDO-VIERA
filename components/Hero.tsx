@@ -16,12 +16,12 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#020617] pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] pt-16">
       {/* Gradient blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-amber-500/6 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-amber-500/4 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/[0.025] rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-red-500/6 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-red-500/4 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-500/[0.025] rounded-full blur-3xl" />
       </div>
 
       {/* Grid pattern */}
@@ -37,7 +37,7 @@ export default function Hero() {
         {/* Badge */}
         <motion.div variants={item} className="flex justify-center mb-8">
           <div className="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700/80 text-slate-300 text-sm font-medium px-4 py-1.5 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
             Landing Pages · Páginas de Venda · Páginas de Produto
           </div>
         </motion.div>
@@ -49,7 +49,7 @@ export default function Hero() {
         >
           <span className="text-white">Tiro suas ideias do papel</span>
           <br />
-          <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
             e transformo em páginas
           </span>
           <br />
@@ -96,7 +96,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#020617] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#000000] to-transparent pointer-events-none" />
     </section>
   );
 }

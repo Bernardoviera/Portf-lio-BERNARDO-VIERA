@@ -55,7 +55,7 @@ const STAGGER = {
 
 export default function WhyMe() {
   return (
-    <section id="por-que" className="py-24 bg-slate-950">
+    <section id="por-que" className="py-24 bg-[#0a0000]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -64,13 +64,13 @@ export default function WhyMe() {
           viewport={{ once: true, margin: "-60px" }}
           variants={FADE_UP}
         >
-          <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
+          <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
             Por que trabalhar comigo?
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
             Comprometimento e organização
             <br />
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
               em cada projeto
             </span>
           </h2>
@@ -93,10 +93,10 @@ export default function WhyMe() {
               <motion.div
                 key={point.title}
                 variants={FADE_UP}
-                className="flex items-start gap-4 bg-slate-900 border border-slate-800 hover:border-amber-500/30 rounded-2xl p-5 transition-all duration-300 group hover:-translate-y-1"
+                className="flex items-start gap-4 bg-[#120000] border border-slate-800 hover:border-red-500/30 rounded-2xl p-5 transition-all duration-300 group hover:-translate-y-1"
               >
-                <div className="bg-amber-500/10 w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors duration-300 mt-0.5">
-                  <Icon size={20} className="text-amber-400" />
+                <div className="bg-red-500/10 w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors duration-300 mt-0.5">
+                  <Icon size={20} className="text-red-400" />
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-white text-base mb-1.5">

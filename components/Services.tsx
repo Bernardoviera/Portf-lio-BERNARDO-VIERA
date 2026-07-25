@@ -54,7 +54,7 @@ const STAGGER = {
 
 export default function Services() {
   return (
-    <section id="servicos" className="py-24 bg-slate-950">
+    <section id="servicos" className="py-24 bg-[#0a0000]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -63,13 +63,13 @@ export default function Services() {
           viewport={{ once: true, margin: "-60px" }}
           variants={FADE_UP}
         >
-          <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
+          <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
             O que eu faço
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
             Páginas construídas para
             <br />
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
               comunicar e converter
             </span>
           </h2>
@@ -91,15 +91,15 @@ export default function Services() {
               <motion.div
                 key={service.title}
                 variants={FADE_UP}
-                className="group bg-slate-900 border border-slate-800 hover:border-amber-500/40 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-amber-500/5"
+                className="group bg-[#120000] border border-slate-800 hover:border-red-500/40 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-red-500/5"
               >
                 {/* Card index */}
                 <span className="text-xs font-bold text-slate-700 font-heading mb-4 block">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <div className="bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-500/20 transition-colors duration-300">
-                  <Icon size={22} className="text-amber-400" />
+                <div className="bg-red-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-500/20 transition-colors duration-300">
+                  <Icon size={22} className="text-red-400" />
                 </div>
                 <h3 className="font-heading font-bold text-white text-xl mb-3">
                   {service.title}
@@ -110,7 +110,7 @@ export default function Services() {
                 <ul className="space-y-2">
                   {service.highlights.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-slate-300">
-                      <CheckCircle size={13} className="text-amber-400 flex-shrink-0" />
+                      <CheckCircle size={13} className="text-red-400 flex-shrink-0" />
                       {item}
                     </li>
                   ))}

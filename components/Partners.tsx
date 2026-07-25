@@ -50,8 +50,8 @@ const STAGGER = {
 
 export default function Partners() {
   return (
-    <section id="parceiros" className="py-24 bg-[#020617] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/4 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+    <section id="parceiros" className="py-24 bg-[#000000] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-red-500/4 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -61,13 +61,13 @@ export default function Partners() {
           viewport={{ once: true, margin: "-60px" }}
           variants={FADE_UP}
         >
-          <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
+          <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
             Para assessorias e parceiros
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
             Parceria white-label para
             <br />
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
               escalar suas entregas
             </span>
           </h2>
@@ -91,10 +91,10 @@ export default function Partners() {
               <motion.div
                 key={type.title}
                 variants={FADE_UP}
-                className="bg-slate-900 border border-slate-800 hover:border-amber-500/30 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-0.5"
+                className="bg-[#120000] border border-slate-800 hover:border-red-500/30 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-0.5"
               >
-                <div className="bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Icon size={22} className="text-amber-400" />
+                <div className="bg-red-500/10 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Icon size={22} className="text-red-400" />
                 </div>
                 <h3 className="font-heading font-bold text-white text-lg mb-2">{type.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{type.desc}</p>
@@ -104,7 +104,7 @@ export default function Partners() {
         </motion.div>
 
         <motion.div
-          className="bg-slate-900 border border-amber-500/20 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+          className="bg-[#120000] border border-red-500/20 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
@@ -117,20 +117,20 @@ export default function Partners() {
             <ul className="space-y-3">
               {benefits.map((benefit) => (
                 <li key={benefit} className="flex items-start gap-3 text-slate-300 text-sm">
-                  <CheckCircle size={17} className="text-amber-400 flex-shrink-0 mt-0.5" />
+                  <CheckCircle size={17} className="text-red-400 flex-shrink-0 mt-0.5" />
                   {benefit}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <div className="bg-amber-500/8 border border-amber-500/20 rounded-2xl p-6 mb-6">
-              <p className="text-amber-200/80 text-sm italic leading-relaxed">
+            <div className="bg-red-500/8 border border-red-500/20 rounded-2xl p-6 mb-6">
+              <p className="text-rose-200/80 text-sm italic leading-relaxed">
                 &ldquo;Meu objetivo é ser um parceiro confiável para assessorias e gestores que precisam
                 de alguém dedicado às páginas. Você foca na estratégia e no relacionamento com o
                 cliente. Eu cuido do desenvolvimento.&rdquo;
               </p>
-              <p className="text-amber-400 font-semibold mt-3 text-sm">— Bernardo Vieira</p>
+              <p className="text-red-400 font-semibold mt-3 text-sm">— Bernardo Vieira</p>
             </div>
             <a
               href={WHATSAPP_URL}

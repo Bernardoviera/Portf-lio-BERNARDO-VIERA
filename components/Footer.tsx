@@ -12,13 +12,13 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#020617] border-t border-slate-800/50 py-12">
+    <footer className="bg-[#000000] border-t border-slate-800/50 py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-2xl font-bold font-heading text-amber-400">BV</span>
+              <span className="text-2xl font-bold font-heading text-red-400">BV</span>
               <span className="text-white font-semibold">Bernardo Vieira</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">

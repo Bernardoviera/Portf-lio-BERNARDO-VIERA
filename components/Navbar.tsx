@@ -36,14 +36,14 @@ export default function Navbar() {
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/90 backdrop-blur-md border-b border-slate-800/60 shadow-lg shadow-black/20"
+          ? "bg-[#0a0000]/90 backdrop-blur-md border-b border-slate-800/60 shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="text-2xl font-bold font-heading text-amber-400 group-hover:text-amber-300 transition-colors">
+            <span className="text-2xl font-bold font-heading text-red-400 group-hover:text-rose-300 transition-colors">
               BV
             </span>
             <span className="hidden sm:block text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
@@ -92,7 +92,7 @@ export default function Navbar() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="md:hidden border-t border-slate-800 py-4 space-y-1 bg-slate-950/95 backdrop-blur-md"
+              className="md:hidden border-t border-slate-800 py-4 space-y-1 bg-[#0a0000]/95 backdrop-blur-md"
             >
               {navLinks.map((link) => (
                 <a

@@ -84,7 +84,7 @@ const STAGGER = {
 
 export default function FeaturedProjects() {
   return (
-    <section id="projetos-destaque" className="py-24 bg-[#020617]">
+    <section id="projetos-destaque" className="py-24 bg-[#000000]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -93,12 +93,12 @@ export default function FeaturedProjects() {
           viewport={{ once: true, margin: "-60px" }}
           variants={FADE_UP}
         >
-          <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
+          <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
             Projetos em destaque
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
             Trabalhos{" "}
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
               desenvolvidos
             </span>
           </h2>
@@ -118,13 +118,13 @@ export default function FeaturedProjects() {
             <motion.article
               key={project.id}
               variants={FADE_UP}
-              className="group relative bg-[#0c111d] border border-slate-800/80 hover:border-amber-500/35 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/8"
+              className="group relative bg-[#0e0000] border border-slate-800/80 hover:border-red-500/35 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/8"
             >
-              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
 
               <div className="grid grid-cols-1 lg:grid-cols-5 min-h-[400px]">
                 {/* Screenshot panel */}
-                <div className="relative lg:col-span-3 h-64 sm:h-80 lg:h-auto overflow-hidden bg-slate-900">
+                <div className="relative lg:col-span-3 h-64 sm:h-80 lg:h-auto overflow-hidden bg-[#120000]">
                   <Image
                     src={project.screenshotUrl}
                     alt={`Preview do projeto ${project.name}`}
@@ -145,11 +145,11 @@ export default function FeaturedProjects() {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-slate-950/25 backdrop-blur-[2px]"
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#0a0000]/25 backdrop-blur-[2px]"
                     tabIndex={-1}
                     aria-hidden="true"
                   >
-                    <span className="flex items-center gap-2 bg-slate-900/90 border border-amber-500/50 text-amber-400 font-semibold text-sm px-5 py-2.5 rounded-2xl shadow-2xl translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <span className="flex items-center gap-2 bg-[#120000]/90 border border-red-500/50 text-red-400 font-semibold text-sm px-5 py-2.5 rounded-2xl shadow-2xl translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                       <ExternalLink size={15} />
                       Abrir projeto
                     </span>
@@ -159,7 +159,7 @@ export default function FeaturedProjects() {
                 {/* Content panel */}
                 <div className="lg:col-span-2 flex flex-col justify-between gap-6 p-7 lg:p-10">
                   <div>
-                    <span className="text-xs font-semibold text-amber-400/70 uppercase tracking-widest">
+                    <span className="text-xs font-semibold text-red-400/70 uppercase tracking-widest">
                       {project.category}
                     </span>
                     <h3 className="font-heading font-bold text-white text-4xl sm:text-5xl mt-1 mb-4 leading-none tracking-tight">
@@ -182,7 +182,7 @@ export default function FeaturedProjects() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-bold px-6 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-amber-500/20 text-sm group/btn"
+                      className="flex items-center justify-center gap-2 bg-red-500 hover:bg-red-400 text-black font-bold px-6 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-red-500/20 text-sm group/btn"
                     >
                       Ver Projeto
                       <ArrowRight size={16} className="group-hover/btn:translate-x-0.5 transition-transform duration-200" />
@@ -191,7 +191,7 @@ export default function FeaturedProjects() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 border border-slate-700 hover:border-amber-500/40 text-slate-400 hover:text-amber-400 px-5 py-3.5 rounded-xl transition-all duration-200 text-sm"
+                      className="flex items-center justify-center gap-2 border border-slate-700 hover:border-red-500/40 text-slate-400 hover:text-red-400 px-5 py-3.5 rounded-xl transition-all duration-200 text-sm"
                     >
                       <ExternalLink size={15} />
                       Abrir em nova aba

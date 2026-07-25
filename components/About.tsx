@@ -9,24 +9,24 @@ const FADE_UP = {
 
 export default function About() {
   return (
-    <section className="py-20 bg-slate-950">
+    <section className="py-20 bg-[#0a0000]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="relative bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 overflow-hidden"
+          className="relative bg-[#120000] border border-slate-800 rounded-3xl p-8 md:p-12 overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={FADE_UP}
         >
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
 
           <div className="flex flex-col sm:flex-row items-start gap-6">
-            <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center">
-              <span className="font-heading font-bold text-amber-400 text-xl">BV</span>
+            <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/25 flex items-center justify-center">
+              <span className="font-heading font-bold text-red-400 text-xl">BV</span>
             </div>
 
             <div>
-              <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
+              <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
                 Sobre meu trabalho
               </span>
               <blockquote className="font-heading text-xl sm:text-2xl font-medium text-white leading-relaxed mt-3 mb-4">

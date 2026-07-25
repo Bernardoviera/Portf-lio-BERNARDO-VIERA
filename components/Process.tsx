@@ -54,7 +54,7 @@ const STAGGER = {
 
 export default function Process() {
   return (
-    <section id="processo" className="py-24 bg-[#020617]">
+    <section id="processo" className="py-24 bg-[#000000]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -63,13 +63,13 @@ export default function Process() {
           viewport={{ once: true, margin: "-60px" }}
           variants={FADE_UP}
         >
-          <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
+          <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
             Meu processo
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
             Do briefing à entrega
             <br />
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
               em 4 etapas
             </span>
           </h2>
@@ -91,7 +91,7 @@ export default function Process() {
               <motion.div
                 key={step.number}
                 variants={FADE_UP}
-                className="relative bg-slate-900 border border-slate-800 hover:border-amber-500/30 rounded-2xl p-7 overflow-hidden group transition-colors duration-300"
+                className="relative bg-[#120000] border border-slate-800 hover:border-red-500/30 rounded-2xl p-7 overflow-hidden group transition-colors duration-300"
               >
                 {/* Large background number */}
                 <span
@@ -102,8 +102,8 @@ export default function Process() {
                 </span>
 
                 {/* Icon */}
-                <div className="relative bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-500/20 transition-colors duration-300">
-                  <Icon size={22} className="text-amber-400" />
+                <div className="relative bg-red-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-500/20 transition-colors duration-300">
+                  <Icon size={22} className="text-red-400" />
                 </div>
 
                 <h3 className="relative font-heading font-bold text-white text-xl mb-3">

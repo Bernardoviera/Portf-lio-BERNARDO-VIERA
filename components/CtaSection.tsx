@@ -16,9 +16,9 @@ const container = {
 
 export default function CtaSection() {
   return (
-    <section className="py-28 bg-[#020617] relative overflow-hidden">
+    <section className="py-28 bg-[#000000] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-amber-500/6 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-red-500/6 rounded-full blur-3xl" />
       </div>
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
@@ -29,7 +29,7 @@ export default function CtaSection() {
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
       >
-        <motion.span variants={FADE_UP} className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
+        <motion.span variants={FADE_UP} className="text-red-400 text-sm font-semibold uppercase tracking-widest">
           Vamos trabalhar juntos
         </motion.span>
 
@@ -39,7 +39,7 @@ export default function CtaSection() {
         >
           Tem um projeto em mente?
           <br />
-          <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
             Me chama no WhatsApp.
           </span>
         </motion.h2>
