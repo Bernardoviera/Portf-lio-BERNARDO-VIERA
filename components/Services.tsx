@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layout, TrendingUp, ShoppingBag, FileText, CheckCircle } from "lucide-react";
+import { Layout, TrendingUp, ShoppingBag, FileText } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
-  highlights: string[];
+  tags: string[];
 }
 
 const services: Service[] = [
@@ -17,104 +17,108 @@ const services: Service[] = [
     title: "Landing Pages",
     description:
       "Páginas de captura estruturadas para apresentar uma oferta com clareza e direcionar o visitante para uma única ação: entrar em contato ou deixar os dados.",
-    highlights: ["Estrutura focada em conversão", "Copy direto e objetivo", "Design responsivo"],
+    tags: ["Estrutura de conversão", "Copy direto", "Design responsivo"],
   },
   {
     icon: TrendingUp,
     title: "Páginas de Venda",
     description:
       "Páginas long-form com estrutura pensada para guiar a decisão de compra: apresentação da oferta, benefícios, prova social e chamadas para ação bem posicionadas.",
-    highlights: ["Estrutura de copy completa", "Design e texto integrados", "Fluxo de leitura estratégico"],
+    tags: ["Copy completa", "Design + texto integrados", "Fluxo estratégico"],
   },
   {
     icon: ShoppingBag,
     title: "Páginas de Produto",
     description:
       "Apresentação visual e estratégica de produtos físicos ou digitais, com foco em destacar benefícios, reduzir dúvidas e facilitar a decisão de compra.",
-    highlights: ["Apresentação visual do produto", "Seções de benefícios e FAQ", "CTA bem posicionado"],
+    tags: ["Apresentação visual", "FAQ e objeções", "CTA bem posicionado"],
   },
   {
     icon: FileText,
     title: "Copy Estratégico",
     description:
       "Texto estruturado para comunicar o valor da oferta com clareza, antecipar objeções do visitante e estimular a ação em cada etapa da página.",
-    highlights: ["Texto orientado à oferta", "Tratamento de objeções", "Linguagem adequada ao público"],
+    tags: ["Orientado à oferta", "Tratamento de objeções", "Linguagem do público"],
   },
 ];
 
+const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
 const FADE_UP = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 };
 
 const STAGGER = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
 };
 
 export default function Services() {
   return (
     <section id="servicos" className="py-24 bg-[#0a0000]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12">
+
         <motion.div
-          className="text-center mb-16"
+          className="mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={FADE_UP}
         >
-          <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
+          <span className="text-red-500 text-xs font-bold uppercase tracking-[0.22em]">
             O que eu faço
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4 leading-tight">
+          <h2
+            className="font-heading font-black text-white mt-3 leading-[0.95] tracking-tight"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+          >
             Páginas construídas para
             <br />
-            <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent">
-              comunicar e converter
-            </span>
+            <span className="text-red-500">comunicar e converter</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Cada entrega é pensada do zero: estrutura, design e texto trabalhados juntos.
-          </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={STAGGER}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={service.title}
                 variants={FADE_UP}
-                className="group bg-[#120000] border border-slate-800 hover:border-red-500/40 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-red-500/5"
+                className="group flex flex-col sm:flex-row items-start gap-6 sm:gap-10 py-10 border-b border-red-950/40 last:border-0"
               >
-                {/* Card index */}
-                <span className="text-xs font-bold text-slate-700 font-heading mb-4 block">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <div className="bg-red-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-500/20 transition-colors duration-300">
-                  <Icon size={22} className="text-red-400" />
+                {/* Icon */}
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/18 transition-colors duration-300">
+                    <Icon size={19} className="text-red-400" />
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-white text-xl mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                  {service.description}
-                </p>
-                <ul className="space-y-2">
-                  {service.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate-300">
-                      <CheckCircle size={13} className="text-red-400 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+                    <h3 className="font-heading font-bold text-white text-xl">{service.title}</h3>
+                    <div className="flex flex-wrap gap-2 sm:flex-shrink-0">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs text-red-400/55 border border-red-950/60 px-2.5 py-1 rounded-full whitespace-nowrap"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-slate-400 text-base leading-relaxed max-w-2xl">
+                    {service.description}
+                  </p>
+                </div>
               </motion.div>
             );
           })}
