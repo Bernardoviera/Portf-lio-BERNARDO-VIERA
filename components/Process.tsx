@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { MessageSquare, Lightbulb, Paintbrush, Rocket } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -10,28 +13,28 @@ interface Step {
 
 const steps: Step[] = [
   {
-    number: "1",
+    number: "01",
     icon: MessageSquare,
     title: "Briefing Estratégico",
     description:
       "Entendo seu negócio, produto, público-alvo e objetivos. Uma conversa aprofundada que define a estratégia de conversão da página.",
   },
   {
-    number: "2",
+    number: "02",
     icon: Lightbulb,
     title: "Estratégia e Estrutura",
     description:
       "Com base no briefing, planejo a arquitetura da página: hierarquia de informação, blocos de copy e fluxo psicológico de conversão.",
   },
   {
-    number: "3",
+    number: "03",
     icon: Paintbrush,
     title: "Design e Copy",
     description:
       "Desenvolvimento do design premium com copy persuasivo integrado. Cada elemento é pensado para guiar o visitante até a conversão.",
   },
   {
-    number: "4",
+    number: "04",
     icon: Rocket,
     title: "Entrega e Revisões",
     description:
@@ -39,11 +42,27 @@ const steps: Step[] = [
   },
 ];
 
+const FADE_UP = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const STAGGER = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
 export default function Process() {
   return (
-    <section id="processo" className="py-24 bg-slate-950">
+    <section id="processo" className="py-24 bg-[#020617]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={FADE_UP}
+        >
           <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
             Meu processo
           </span>
@@ -57,32 +76,46 @@ export default function Process() {
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Um processo claro e colaborativo para entregar páginas que realmente convertem.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Connector line */}
-          <div className="hidden lg:block absolute top-10 left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          variants={STAGGER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {steps.map((step) => {
             const Icon = step.icon;
             return (
-              <div key={step.number} className="relative text-center group">
-                <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-slate-900 border border-slate-800 group-hover:border-amber-500/40 mb-5 mx-auto transition-colors duration-300">
-                  <Icon size={28} className="text-amber-400" />
-                  <span className="absolute -top-2.5 -right-2.5 bg-amber-500 text-black text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center font-heading">
-                    {step.number}
-                  </span>
+              <motion.div
+                key={step.number}
+                variants={FADE_UP}
+                className="relative bg-slate-900 border border-slate-800 hover:border-amber-500/30 rounded-2xl p-7 overflow-hidden group transition-colors duration-300"
+              >
+                {/* Large background number */}
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-1 top-2 text-[6.5rem] font-black text-slate-800/70 font-heading leading-none select-none pointer-events-none"
+                >
+                  {step.number}
+                </span>
+
+                {/* Icon */}
+                <div className="relative bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-500/20 transition-colors duration-300">
+                  <Icon size={22} className="text-amber-400" />
                 </div>
-                <h3 className="font-heading font-bold text-white text-lg mb-3">
+
+                <h3 className="relative font-heading font-bold text-white text-xl mb-3">
                   {step.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="relative text-slate-400 text-sm leading-relaxed">
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

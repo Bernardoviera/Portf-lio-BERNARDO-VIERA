@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Layout, TrendingUp, ShoppingBag, FileText, CheckCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -39,11 +42,27 @@ const services: Service[] = [
   },
 ];
 
+const FADE_UP = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const STAGGER = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+};
+
 export default function Services() {
   return (
     <section id="servicos" className="py-24 bg-slate-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={FADE_UP}
+        >
           <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
             O que eu faço
           </span>
@@ -57,16 +76,28 @@ export default function Services() {
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Cada entrega é pensada do zero: estrutura, design e texto trabalhados juntos.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => {
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={STAGGER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div
+              <motion.div
                 key={service.title}
-                className="group bg-slate-900 border border-slate-800 hover:border-amber-500/40 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/5"
+                variants={FADE_UP}
+                className="group bg-slate-900 border border-slate-800 hover:border-amber-500/40 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-amber-500/5"
               >
+                {/* Card index */}
+                <span className="text-xs font-bold text-slate-700 font-heading mb-4 block">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
                 <div className="bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-500/20 transition-colors duration-300">
                   <Icon size={22} className="text-amber-400" />
                 </div>
@@ -84,10 +115,10 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

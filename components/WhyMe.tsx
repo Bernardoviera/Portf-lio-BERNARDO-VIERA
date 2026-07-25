@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Monitor, Eye, Target, Package, MessageSquare } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -40,11 +43,27 @@ const points: Point[] = [
   },
 ];
 
+const FADE_UP = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const STAGGER = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
+
 export default function WhyMe() {
   return (
     <section id="por-que" className="py-24 bg-slate-950">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={FADE_UP}
+        >
           <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
             Por que trabalhar comigo?
           </span>
@@ -59,15 +78,22 @@ export default function WhyMe() {
             Não entrego só uma página. Entrego um processo claro, comunicação direta e um
             resultado que você pode apresentar com confiança.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          variants={STAGGER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {points.map((point) => {
             const Icon = point.icon;
             return (
-              <div
+              <motion.div
                 key={point.title}
-                className="flex items-start gap-4 bg-slate-900 border border-slate-800 hover:border-amber-500/30 rounded-2xl p-5 transition-all duration-300 group"
+                variants={FADE_UP}
+                className="flex items-start gap-4 bg-slate-900 border border-slate-800 hover:border-amber-500/30 rounded-2xl p-5 transition-all duration-300 group hover:-translate-y-1"
               >
                 <div className="bg-amber-500/10 w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors duration-300 mt-0.5">
                   <Icon size={20} className="text-amber-400" />
@@ -78,10 +104,10 @@ export default function WhyMe() {
                   </h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{point.description}</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

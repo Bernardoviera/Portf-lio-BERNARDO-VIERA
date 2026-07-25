@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { CheckCircle, Users, Zap, Shield, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/constants";
@@ -35,13 +38,29 @@ const benefits = [
   "Abertura para parcerias contínuas com condições diferenciadas",
 ];
 
+const FADE_UP = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const STAGGER = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+};
+
 export default function Partners() {
   return (
     <section id="parceiros" className="py-24 bg-[#020617] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/4 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={FADE_UP}
+        >
           <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
             Para assessorias e parceiros
           </span>
@@ -57,15 +76,21 @@ export default function Partners() {
             precisam entregar páginas profissionais aos seus clientes{" "}
             <span className="text-slate-300">sem aumentar a equipe interna.</span>
           </p>
-        </div>
+        </motion.div>
 
-        {/* Partner type cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14"
+          variants={STAGGER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {partnerTypes.map((type) => {
             const Icon = type.icon;
             return (
-              <div
+              <motion.div
                 key={type.title}
+                variants={FADE_UP}
                 className="bg-slate-900 border border-slate-800 hover:border-amber-500/30 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-0.5"
               >
                 <div className="bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -73,13 +98,18 @@ export default function Partners() {
                 </div>
                 <h3 className="font-heading font-bold text-white text-lg mb-2">{type.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{type.desc}</p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
-        {/* Benefits + CTA card */}
-        <div className="bg-slate-900 border border-amber-500/20 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <motion.div
+          className="bg-slate-900 border border-amber-500/20 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={FADE_UP}
+        >
           <div>
             <h3 className="font-heading font-bold text-white text-2xl mb-6">
               Como funciona a parceria
@@ -112,7 +142,7 @@ export default function Partners() {
               Quero conversar sobre parceria
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 interface Project {
@@ -67,11 +70,27 @@ const projects: Project[] = [
   },
 ];
 
+const FADE_UP = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const STAGGER = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
 export default function Projects() {
   return (
-    <section id="projetos" className="py-24 bg-[#020617]">
+    <section id="projetos" className="py-24 bg-slate-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={FADE_UP}
+        >
           <span className="text-amber-400 text-sm font-semibold uppercase tracking-widest">
             Portfólio
           </span>
@@ -85,21 +104,24 @@ export default function Projects() {
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Projetos identificados como reais ou conceituais de forma transparente.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          variants={STAGGER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {projects.map((project) => (
-            <div
+            <motion.div
               key={project.title}
-              className={`relative bg-slate-900 border ${project.borderColor} rounded-2xl overflow-hidden group hover:scale-[1.015] transition-all duration-300 hover:shadow-2xl flex flex-col`}
+              variants={FADE_UP}
+              className={`relative bg-slate-900 border ${project.borderColor} rounded-2xl overflow-hidden hover:scale-[1.015] transition-all duration-300 hover:shadow-xl flex flex-col`}
             >
-              {/* Top accent line */}
-              <div
-                className={`h-1 bg-gradient-to-r ${project.accentFrom} ${project.accentTo} flex-shrink-0`}
-              />
+              <div className={`h-1 bg-gradient-to-r ${project.accentFrom} ${project.accentTo} flex-shrink-0`} />
 
               <div className="p-6 flex flex-col flex-1">
-                {/* Label + category */}
                 <div className="flex items-center gap-2 mb-3">
                   <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${project.labelStyle}`}>
                     {project.label}
@@ -116,7 +138,6 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                {/* Deliverables */}
                 <div className="bg-slate-800/60 rounded-xl p-4 mb-4">
                   <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
                     O que foi desenvolvido
@@ -131,21 +152,17 @@ export default function Projects() {
                   </ul>
                 </div>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md"
-                    >
+                    <span key={tag} className="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
