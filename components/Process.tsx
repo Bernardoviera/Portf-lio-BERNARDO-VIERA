@@ -45,13 +45,13 @@ const steps: Step[] = [
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 const FADE_UP = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+  hidden: { opacity: 0, y: 20, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: EASE } },
 };
 
 const STAGGER = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
 };
 
 export default function Process() {
@@ -79,47 +79,53 @@ export default function Process() {
           </h2>
         </motion.div>
 
-        {/* Vertical timeline */}
-        <motion.div
-          className="relative pl-10 sm:pl-14"
-          variants={STAGGER}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-        >
-          {/* Timeline spine */}
-          <div className="absolute left-3.5 sm:left-5 top-2 bottom-2 w-px bg-gradient-to-b from-red-500/60 via-red-800/30 to-transparent" />
+        <div className="relative pl-10 sm:pl-14">
+          {/* Animated timeline spine */}
+          <motion.div
+            className="absolute left-3.5 sm:left-5 top-2 bottom-2 w-px bg-gradient-to-b from-red-500/70 via-red-700/35 to-transparent origin-top"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 1.8, ease: EASE, delay: 0.1 }}
+          />
 
-          {steps.map((step) => {
-            const Icon = step.icon;
-            return (
-              <motion.div
-                key={step.number}
-                variants={FADE_UP}
-                className="relative mb-12 last:mb-0 group"
-              >
-                {/* Node */}
-                <div className="absolute -left-10 sm:-left-14 top-0 w-7 h-7 rounded-full bg-black border border-red-700/50 flex items-center justify-center group-hover:border-red-500/70 transition-colors duration-300">
-                  <Icon size={13} className="text-red-400" />
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs font-bold text-red-500/50 uppercase tracking-widest font-heading">
-                      {step.number}
-                    </span>
-                    <h3 className="font-heading font-bold text-white text-lg">
-                      {step.title}
-                    </h3>
+          <motion.div
+            variants={STAGGER}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            {steps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={step.number}
+                  variants={FADE_UP}
+                  className="relative mb-12 last:mb-0 group"
+                >
+                  {/* Node on the line */}
+                  <div className="absolute -left-10 sm:-left-14 top-0 w-7 h-7 rounded-full bg-black border border-red-700/50 flex items-center justify-center group-hover:border-red-500/80 group-hover:bg-red-950/30 transition-all duration-300">
+                    <Icon size={13} className="text-red-400" />
                   </div>
-                  <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-xs font-bold text-red-500/45 uppercase tracking-widest font-heading">
+                        {step.number}
+                      </span>
+                      <h3 className="font-heading font-bold text-white text-lg">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

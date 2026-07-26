@@ -45,8 +45,8 @@ const services: Service[] = [
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 const FADE_UP = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: EASE } },
 };
 
 const STAGGER = {
