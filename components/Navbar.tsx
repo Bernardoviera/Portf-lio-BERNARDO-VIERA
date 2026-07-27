@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
@@ -19,15 +19,34 @@ const mobileMenuVariants: Variants = {
   exit: { opacity: 0, y: -8, transition: { duration: 0.15, ease: "easeIn" } },
 };
 
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [bChar, setBChar] = useState("B");
+  const [vChar, setVChar] = useState("V");
+  const scrambleRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  function handleLogoHover() {
+    if (scrambleRef.current) clearInterval(scrambleRef.current);
+    let frame = 0;
+    scrambleRef.current = setInterval(() => {
+      frame++;
+      setBChar(frame > 7 ? "B" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
+      setVChar(frame > 9 ? "V" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
+      if (frame >= 12) {
+        clearInterval(scrambleRef.current!);
+        scrambleRef.current = null;
+      }
+    }, 45);
+  }
 
   return (
     <motion.header
@@ -42,14 +61,14 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-3 group">
-            {/* Two-colour monogram */}
+          <Link href="/" className="flex items-center gap-3 group" onMouseEnter={handleLogoHover}>
+            {/* Two-colour monogram with scramble */}
             <span
               className="font-heading font-black leading-none select-none"
               style={{ fontSize: "1.7rem", letterSpacing: "-0.04em" }}
             >
-              <span className="text-white group-hover:text-slate-100 transition-colors duration-200">B</span>
-              <span className="text-red-500 group-hover:text-red-400 transition-colors duration-200">V</span>
+              <span className="text-white group-hover:text-slate-100 transition-colors duration-200">{bChar}</span>
+              <span className="text-red-500 group-hover:text-red-400 transition-colors duration-200">{vChar}</span>
             </span>
 
             {/* Divider + stacked name */}

@@ -3,6 +3,8 @@ import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
+import SmoothScroll from "@/components/SmoothScroll";
+import Preloader from "@/components/Preloader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,6 +49,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sora.variable} font-sans antialiased bg-[#000000] text-slate-50`}
       >
+        <SmoothScroll />
+        <Preloader />
         <CustomCursor />
         <ScrollProgress />
         {children}

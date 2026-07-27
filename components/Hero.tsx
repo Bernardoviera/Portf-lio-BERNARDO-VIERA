@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/constants";
 import Magnetic from "@/components/Magnetic";
@@ -36,11 +36,15 @@ const lines: { text: string; red?: boolean }[][] = [
 ];
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const blob1Y = useTransform(scrollY, [0, 600], [0, -90]);
+  const blob2Y = useTransform(scrollY, [0, 600], [0, -50]);
+
   return (
     <section className="relative min-h-screen flex items-center bg-black overflow-hidden pt-16">
       <div className="absolute inset-0 dot-pattern pointer-events-none" />
-      <div className="absolute -top-32 -left-32 w-[700px] h-[700px] bg-red-600/7 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-900/5 rounded-full blur-[100px] pointer-events-none" />
+      <motion.div style={{ y: blob1Y }} className="absolute -top-32 -left-32 w-[700px] h-[700px] bg-red-600/7 rounded-full blur-[130px] pointer-events-none" />
+      <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-900/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-red-500/50 to-transparent hidden lg:block pointer-events-none" />
 
       <motion.div
