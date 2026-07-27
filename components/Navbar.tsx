@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
@@ -19,14 +19,13 @@ const mobileMenuVariants: Variants = {
   exit: { opacity: 0, y: -8, transition: { duration: 0.15, ease: "easeIn" } },
 };
 
-const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#@$!%&0123456789";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [bChar, setBChar] = useState("B");
   const [vChar, setVChar] = useState("V");
-  const scrambleRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -35,17 +34,19 @@ export default function Navbar() {
   }, []);
 
   function handleLogoHover() {
-    if (scrambleRef.current) clearInterval(scrambleRef.current);
+    const TOTAL = 16;
+    const LOCK_B = 10;
+    const LOCK_V = 13;
     let frame = 0;
-    scrambleRef.current = setInterval(() => {
+
+    function tick() {
       frame++;
-      setBChar(frame > 7 ? "B" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
-      setVChar(frame > 9 ? "V" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
-      if (frame >= 12) {
-        clearInterval(scrambleRef.current!);
-        scrambleRef.current = null;
-      }
-    }, 45);
+      setBChar(frame >= LOCK_B ? "B" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
+      setVChar(frame >= LOCK_V ? "V" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
+      if (frame < TOTAL) setTimeout(tick, 65);
+    }
+
+    tick();
   }
 
   return (
