@@ -5,6 +5,7 @@ import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
       >
         <SmoothScroll />
         <Preloader />
+        <ScrollToTop />
         <CustomCursor />
         <ScrollProgress />
         {children}

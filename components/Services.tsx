@@ -98,8 +98,18 @@ export default function Services() {
               <motion.div
                 key={service.title}
                 variants={FADE_UP}
-                className="group flex flex-col sm:flex-row items-start gap-6 sm:gap-10 py-10 border-b border-red-950/40 last:border-0"
+                whileHover="hover"
+                className="group relative flex flex-col sm:flex-row items-start gap-6 sm:gap-10 py-10 border-b border-red-950/40 last:border-0"
               >
+                <motion.div
+                  variants={{
+                    hidden: { scaleX: 0 },
+                    visible: { scaleX: 0 },
+                    hover: { scaleX: 1, transition: { duration: 0.45, ease: EASE } },
+                  }}
+                  className="absolute bottom-0 left-0 h-px bg-red-500/50 w-full pointer-events-none"
+                  style={{ originX: 0 }}
+                />
                 {/* Icon */}
                 <div className="flex-shrink-0 mt-1">
                   <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/18 transition-colors duration-300">

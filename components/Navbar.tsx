@@ -26,11 +26,32 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [bChar, setBChar] = useState("B");
   const [vChar, setVChar] = useState("V");
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      if (window.scrollY < 100) setActiveSection("");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.slice(1));
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection("#" + entry.target.id);
+        });
+      },
+      { rootMargin: "-64px 0px -40% 0px", threshold: 0.1 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
   }, []);
 
   function handleLogoHover() {
@@ -38,14 +59,12 @@ export default function Navbar() {
     const LOCK_B = 10;
     const LOCK_V = 13;
     let frame = 0;
-
     function tick() {
       frame++;
       setBChar(frame >= LOCK_B ? "B" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
       setVChar(frame >= LOCK_V ? "V" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
       if (frame < TOTAL) setTimeout(tick, 65);
     }
-
     tick();
   }
 
@@ -63,7 +82,6 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3 group" onMouseEnter={handleLogoHover}>
-            {/* Two-colour monogram with scramble */}
             <span
               className="font-heading font-black leading-none select-none"
               style={{ fontSize: "1.7rem", letterSpacing: "-0.04em" }}
@@ -71,8 +89,6 @@ export default function Navbar() {
               <span className="text-white group-hover:text-slate-100 transition-colors duration-200">{bChar}</span>
               <span className="text-red-500 group-hover:text-red-400 transition-colors duration-200">{vChar}</span>
             </span>
-
-            {/* Divider + stacked name */}
             <div className="hidden sm:flex items-center gap-3">
               <div className="w-px h-6 bg-red-900/50" />
               <div className="flex flex-col leading-none gap-0.5">
@@ -87,9 +103,16 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                className={`relative text-sm pb-0.5 transition-colors duration-200 ${
+                  activeSection === link.href ? "text-white" : "text-slate-400 hover:text-white"
+                }`}
               >
                 {link.label}
+                <span
+                  className={`absolute bottom-0 left-0 h-px bg-red-500 transition-all duration-300 ${
+                    activeSection === link.href ? "w-full" : "w-0"
+                  }`}
+                />
               </a>
             ))}
           </div>
@@ -129,7 +152,11 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block text-slate-400 hover:text-white hover:bg-slate-800/50 px-3 py-2.5 rounded-lg transition-colors"
+                  className={`block px-3 py-2.5 rounded-lg transition-colors ${
+                    activeSection === link.href
+                      ? "text-white bg-red-500/10 border-l-2 border-red-500"
+                      : "text-slate-400 hover:text-white hover:bg-slate-800/50"
+                  }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
