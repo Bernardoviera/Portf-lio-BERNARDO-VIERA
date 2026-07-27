@@ -19,7 +19,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Bernardo Vieira | Criador de Páginas de Venda",
   description:
-    "Criação de landing pages, páginas de produto e páginas de venda de alta conversão para assessorias, gestores de tráfego e empresas.",
+    "Criação de landing pages, páginas de venda, páginas institucionais e páginas de produto de alta conversão para assessorias, gestores de tráfego e empresas.",
   keywords: [
     "landing page",
     "página de venda",

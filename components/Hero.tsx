@@ -53,7 +53,7 @@ export default function Hero() {
         <motion.div variants={fadeItem} className="flex items-center gap-3 mb-8">
           <div className="w-8 h-px bg-red-500" />
           <span className="text-red-400 text-xs font-bold uppercase tracking-[0.22em]">
-            Landing Pages · Páginas de Venda · Páginas de Produto
+            Landing Pages · Páginas de Venda · Institucionais · Produto
           </span>
         </motion.div>
 

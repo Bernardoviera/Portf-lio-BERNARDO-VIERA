@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layout, TrendingUp, ShoppingBag, FileText } from "lucide-react";
+import { Layout, TrendingUp, ShoppingBag, FileText, Globe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Service {
@@ -39,6 +39,13 @@ const services: Service[] = [
     description:
       "Texto estruturado para comunicar o valor da oferta com clareza, antecipar objeções do visitante e estimular a ação em cada etapa da página.",
     tags: ["Orientado à oferta", "Tratamento de objeções", "Linguagem do público"],
+  },
+  {
+    icon: Globe,
+    title: "Páginas Institucionais",
+    description:
+      "Apresentação profissional da sua marca, empresa ou serviço. Estrutura pensada para transmitir credibilidade, comunicar diferenciais e criar uma presença digital sólida.",
+    tags: ["Apresentação de marca", "Credibilidade", "Design profissional"],
   },
 ];
 

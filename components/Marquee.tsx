@@ -3,12 +3,12 @@
 const items = [
   "Landing Pages",
   "Páginas de Venda",
+  "Páginas Institucionais",
   "Conversão",
   "Design Premium",
   "Copy Estratégico",
   "Páginas de Produto",
   "White-label",
-  "Alta Performance",
 ];
 
 const repeated = [...items, ...items, ...items];
