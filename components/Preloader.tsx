@@ -28,8 +28,8 @@ export default function Preloader() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.55, ease: EASE }}
           >
-            <span className="text-white">B</span>
-            <span className="text-red-500">V</span>
+            <span className="text-white">V</span>
+            <span className="text-red-500">L</span>
           </motion.span>
 
           <div className="mt-10 w-28 h-[2px] bg-slate-900 overflow-hidden rounded-full">

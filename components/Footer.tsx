@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <span className="text-2xl font-bold font-heading text-red-400">BV</span>
+              <span className="text-2xl font-bold font-heading text-red-400">VL</span>
               <span className="text-white font-semibold">Viera Lara Studio</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">

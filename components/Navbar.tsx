@@ -24,8 +24,8 @@ const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#@$!%&0123456789";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [bChar, setBChar] = useState("B");
-  const [vChar, setVChar] = useState("V");
+  const [bChar, setBChar] = useState("V");
+  const [vChar, setVChar] = useState("L");
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
@@ -61,8 +61,8 @@ export default function Navbar() {
     let frame = 0;
     function tick() {
       frame++;
-      setBChar(frame >= LOCK_B ? "B" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
-      setVChar(frame >= LOCK_V ? "V" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
+      setBChar(frame >= LOCK_B ? "V" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
+      setVChar(frame >= LOCK_V ? "L" : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]);
       if (frame < TOTAL) setTimeout(tick, 65);
     }
     tick();
