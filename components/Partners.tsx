@@ -130,7 +130,7 @@ export default function Partners() {
                 de alguém dedicado às páginas. Você foca na estratégia e no relacionamento com o
                 cliente. Eu cuido do desenvolvimento.&rdquo;
               </p>
-              <p className="text-red-400 font-semibold mt-3 text-sm">— Bernardo Vieira</p>
+              <p className="text-red-400 font-semibold mt-3 text-sm">— Viera Lara Studio</p>
             </div>
             <a
               href={WHATSAPP_URL}

@@ -20,7 +20,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Bernardo Vieira | Criador de Páginas de Venda",
+  title: "Viera Lara Studio | Criador de Páginas de Venda",
   description:
     "Criação de landing pages, páginas de venda, páginas institucionais e páginas de produto de alta conversão para assessorias, gestores de tráfego e empresas.",
   keywords: [
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     "conversão",
     "assessoria digital",
   ],
-  authors: [{ name: "Bernardo Vieira" }],
+  authors: [{ name: "Viera Lara Studio" }],
   openGraph: {
-    title: "Bernardo Vieira | Criador de Páginas de Venda",
+    title: "Viera Lara Studio | Criador de Páginas de Venda",
     description:
       "Landing pages e páginas de venda que convertem. Para assessorias, gestores de tráfego e empresas.",
     type: "website",

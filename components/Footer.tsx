@@ -19,7 +19,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2.5 mb-3">
               <span className="text-2xl font-bold font-heading text-red-400">BV</span>
-              <span className="text-white font-semibold">Bernardo Vieira</span>
+              <span className="text-white font-semibold">Viera Lara Studio</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
               Criador de páginas de venda e landing pages de alta conversão para assessorias,
@@ -65,7 +65,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-slate-600 text-sm">
-            © {year} Bernardo Vieira. Todos os direitos reservados.
+            © {year} Viera Lara Studio. Todos os direitos reservados.
           </p>
           <p className="text-slate-700 text-xs">
             Especialista em páginas de venda de alta conversão

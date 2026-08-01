@@ -92,8 +92,8 @@ export default function Navbar() {
             <div className="hidden sm:flex items-center gap-3">
               <div className="w-px h-6 bg-red-900/50" />
               <div className="flex flex-col leading-none gap-0.5">
-                <span className="text-[9px] font-bold text-red-500/60 uppercase tracking-[0.2em]">Bernardo</span>
-                <span className="text-[9px] font-bold text-slate-300 uppercase tracking-[0.2em]">Vieira</span>
+                <span className="text-[9px] font-bold text-red-500/60 uppercase tracking-[0.2em]">Viera</span>
+                <span className="text-[9px] font-bold text-slate-300 uppercase tracking-[0.2em]">Lara Studio</span>
               </div>
             </div>
           </Link>

@@ -48,7 +48,7 @@ export default function About() {
             <div className="flex items-center gap-4">
               <div className="w-8 h-px bg-red-500" />
               <div>
-                <span className="text-white font-semibold text-sm">Bernardo Vieira</span>
+                <span className="text-white font-semibold text-sm">Viera Lara Studio</span>
                 <span className="text-slate-500 text-sm"> — Criador de páginas de venda</span>
               </div>
             </div>
