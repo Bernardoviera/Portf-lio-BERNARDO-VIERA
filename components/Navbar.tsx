@@ -89,7 +89,7 @@ export default function Navbar() {
               <span className="text-white group-hover:text-slate-100 transition-colors duration-200">{bChar}</span>
               <span className="text-red-500 group-hover:text-red-400 transition-colors duration-200">{vChar}</span>
             </span>
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <div className="w-px h-6 bg-red-900/50" />
               <div className="flex flex-col leading-none gap-0.5">
                 <span className="text-[9px] font-bold text-red-500/60 uppercase tracking-[0.2em]">Viera</span>
